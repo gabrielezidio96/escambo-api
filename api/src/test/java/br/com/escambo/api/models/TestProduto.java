@@ -23,7 +23,7 @@ public class TestProduto {
 		prod.add(new Produto(2, "Batedeira", "Fazer bolo"));
 		
 		Pessoa p1 = new Pessoa("Pedro", "Rua x", prod);
-		Assertions.assertEquals(2, p1.getProduto().size());
+		Assertions.assertEquals(2, p1.getProdutos().size());
 		Assertions.assertEquals("Pedro", p1.getNome());
 	}
 	

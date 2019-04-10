@@ -5,17 +5,19 @@ public class Anuncio {
 	private String titulo;
 	private String descricao;
 	private Pessoa pessoa;
-	private Produto produto;
+	private Produto produto_oferecido;
+	private Produto produto_desejado;
 	
-	public Anuncio(int id, String titulo, String descricao, Pessoa pessoa, Produto produto) {
+	public Anuncio(int id, String titulo, String descricao, Pessoa pessoa, Produto produto_oferecido,
+			Produto produto_desejado) {
 		super();
 		Id = id;
 		this.titulo = titulo;
 		this.descricao = descricao;
 		this.pessoa = pessoa;
-		this.produto = produto;
+		this.produto_oferecido = produto_oferecido;
+		this.produto_desejado = produto_desejado;
 	}
-	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -28,11 +30,17 @@ public class Anuncio {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Produto getProduto() {
-		return produto;
+	public Produto getProduto_oferecido() {
+		return produto_oferecido;
 	}
-	public void setProduto(Produto produto) {
-		this.produto = produto;
+	public void setProduto_oferecido(Produto produto_oferecido) {
+		this.produto_oferecido = produto_oferecido;
+	}
+	public Produto getProduto_desejado() {
+		return produto_desejado;
+	}
+	public void setProduto_desejado(Produto produto_desejado) {
+		this.produto_desejado = produto_desejado;
 	}
 	public int getId() {
 		return Id;

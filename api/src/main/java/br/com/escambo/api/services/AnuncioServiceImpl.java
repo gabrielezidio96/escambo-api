@@ -13,8 +13,10 @@ import br.com.escambo.api.models.Produto;
 public class AnuncioServiceImpl implements IAnuncioService{
 
 	public List<Anuncio> buscarTodosAnuncios() {
+		Produto p = new Produto(0, "Parafusadeira","Parafusar objetos");
 		List<Anuncio> anuncios = new ArrayList<Anuncio>();
-		anuncios.add(new Anuncio(0,"Furadeira por Parafusadeira", "Preciso de uma furadeira", null, null));
+		anuncios.add(new Anuncio(0,"Furadeira por Parafusadeira", "Preciso de uma furadeira", null,p, null));
+		anuncios.add(new Anuncio(0,"Furadeira por Parafusadeira", "Preciso de uma furadeira", null,null, null));
 		return anuncios;
 	}
 }

@@ -7,13 +7,13 @@ public class Pessoa {
 	private int Id;
 	private String nome;
 	private String endereco;
-	private List<Produto> produto;
+	private List<Produto> produtos;
 	
-	public Pessoa(String nome, String endereco, List<Produto> produto) {
+	public Pessoa(String nome, String endereco, List<Produto> produtos) {
 		super();
 		this.nome = nome;
 		this.endereco = endereco;
-		this.produto = produto;
+		this.produtos = produtos;
 	}
 	
 	public String getNome() {
@@ -28,11 +28,11 @@ public class Pessoa {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public List<Produto> getProduto() {
-		return produto;
+	public List<Produto> getProdutos() {
+		return produtos;
 	}
-	public void setProduto(List<Produto> produto) {
-		this.produto = produto;
+	public void setProdutos(List<Produto> produto) {
+		this.produtos = produto;
 	}
 	public int getId() {
 		return Id;
