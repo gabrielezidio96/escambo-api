@@ -14,17 +14,19 @@ import org.hibernate.annotations.Where;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.escambo.api.models.utils.BasicEntity;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 @Table(name = "tbl_produto")
 public class Produto extends BasicEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long id;	
 	@Column(name = "nome")
-	private String nome;
+	private String nome;	
 	@Column(name = "descricao")
-	private String descricao;
+	private String descricao;	
 	@JsonIgnore
     @ManyToOne
     @JoinColumn(name="pessoa_id")
