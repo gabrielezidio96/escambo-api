@@ -13,13 +13,14 @@ import org.hibernate.annotations.Where;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.com.escambo.api.models.utils.BasicEntity;
+
 @Entity
 @Table(name = "tbl_produto")
-@Where(clause="ativo=1")
-public class Produto {
+public class Produto extends BasicEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 	@Column(name = "nome")
 	private String nome;
 	@Column(name = "descricao")
@@ -28,8 +29,6 @@ public class Produto {
     @ManyToOne
     @JoinColumn(name="pessoa_id")
     private Pessoa pessoa;
-	@Column(name = "ativo")
-	private boolean ativo;
 	
 	public Produto() {}
     
@@ -38,20 +37,13 @@ public class Produto {
 		this.nome = nome;
 		this.descricao = descricao;
 	}
-
-	public boolean isAtivo() {
-		return ativo;
+	
+	@Override
+	public Long getId() {
+		return this.id;
 	}
 
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
