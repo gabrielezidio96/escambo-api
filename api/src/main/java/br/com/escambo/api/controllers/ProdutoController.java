@@ -36,27 +36,27 @@ public class ProdutoController {
     	return ResponseEntity.ok(produtoService.buscarProdutos());
     }
 	
-	@PostMapping("/produto")
-	public ResponseEntity adicionaProduto(@RequestBody Produto produto) {
-		return ResponseEntity.ok(produtoService.salvaProduto(produto));
+	@PostMapping()
+	public Produto adicionaProduto(@RequestBody Produto produto) {
+		return produtoService.salvaProduto(produto);
 	}
     
-    @PutMapping("/produto")
-    public ResponseEntity<Produto> atualizaProduto(@RequestBody Produto produto) {
-        if (!produtoService.findById(produto.getId()).isPresent()) {
-            return ResponseEntity.badRequest().build();
+    @PutMapping("/{id}")
+    public ResponseEntity<Produto> atualizaProduto(@PathVariable("id") long id, @RequestBody Produto produto) {
+        if (!produtoService.findById(id).isPresent()) {
+            return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(produtoService.salvaProduto(produto));
+        produto.setId(id);
+        return ResponseEntity.ok().body(produtoService.salvaProduto(produto));
     }
     
-    @DeleteMapping("/produto/{id}")
-    public ResponseEntity deletaProduto(@PathVariable("id") long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletaProduto(@PathVariable("id") long id) {
         if (!produtoService.findById(id).isPresent()) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.notFound().build();
         }
 
         produtoService.deletaProduto(id);
-
         return ResponseEntity.ok().build();
     }
 }
